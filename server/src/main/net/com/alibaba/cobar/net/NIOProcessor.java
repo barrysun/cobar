@@ -30,9 +30,9 @@ import com.alibaba.cobar.util.NameableExecutor;
  * @author xianmao.hexm
  */
 public final class NIOProcessor {
-    private static final int DEFAULT_BUFFER_SIZE = 1024 * 1024 * 16;
-    private static final int DEFAULT_BUFFER_CHUNK_SIZE = 4096;
-    private static final int AVAILABLE_PROCESSORS = Runtime.getRuntime().availableProcessors();
+    private static final int DEFAULT_BUFFER_SIZE = 1024 * 1024 * 32; // by JJF 1024 * 1024 * 16
+    private static final int DEFAULT_BUFFER_CHUNK_SIZE = 1024 * 32; // by JJF 4096 修改为 1024 * 32 会提升一些性能，不是特别明显
+    private static final int AVAILABLE_PROCESSORS = Runtime.getRuntime().availableProcessors() * 2;
 
     private final String name;
     private final NIOReactor reactor;
